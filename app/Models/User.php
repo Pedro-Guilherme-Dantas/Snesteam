@@ -18,6 +18,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
