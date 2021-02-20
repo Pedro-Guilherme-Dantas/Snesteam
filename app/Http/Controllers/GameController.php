@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateGame;
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 class GameController extends Controller
 {
@@ -13,6 +14,10 @@ class GameController extends Controller
     	$games = Game::all();
     	return view('admin.games.index',['games'=>$games]);
     }
+	public function indexUser(){
+		$games = Game::all();
+    	return view('view-main',['games'=>$games]);
+	}
     public function create(){
     	return view('admin.games.create');
     }
@@ -98,4 +103,5 @@ class GameController extends Controller
         }
         
     }
+
 }
