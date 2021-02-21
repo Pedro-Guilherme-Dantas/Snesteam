@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Admin - Lista de Jogos')
+@section('title','Lista de Jogos')
 
 @section('content')
 	@if(session('msg'))
@@ -22,10 +22,11 @@
 				@foreach($games as $game)	
 					<tr>
 						<td><img src="/storage/{{$game->cover}}" alt="{{$game->title}}" title="{{$game->title}}"></td>
-						<td><img src="/storage/{{$game->img1}}" alt="{{$game->title}}(1)" title="{{$game->title}}(1)"></td>
-						<td><img src="/storage/{{$game->img2}}" alt="{{$game->title}}(2)" title="{{$game->title}}(2)"></td>
-						<td><img src="/storage/{{$game->img3}}" alt="{{$game->title}}(3)" title="{{$game->title}}(3)"></td>
-						<td><img src="/storage/{{$game->img4}}"alt="{{$game->title}}(4)" title="{{$game->title}}(4)"></td>
+						@for($i=1;$i<=4;$i++)
+							<td>
+								<img src="/storage/{{$game['img'.$i]}}" alt="{{$game->title}}-{{$i}}" title="{{$game->title}}-{{$i}}">
+							</td>
+						@endfor
 						<td>{{$game->title}}</td>
 						<td>{{$game->description}}</td>
 						<td><a href="/storage/{{$game->file}}">{{$game->title}}</a></td>

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Admin - Adicionar Jogo')
+@section('title','Adicionar Jogo')
 	
 @section('content')	
 	<div id="event-create-container" class="col-md-6 offset-md3" id="divFormCreate">

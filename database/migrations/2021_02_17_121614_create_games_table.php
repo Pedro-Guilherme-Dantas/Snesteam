@@ -23,7 +23,6 @@ class CreateGamesTable extends Migration
             $table->string('img3');
             $table->string('img4');
             $table->string('file');
-            $table->timestamps();
         });
     }
 

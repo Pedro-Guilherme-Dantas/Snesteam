@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Admin - Editar Jogo')
+@section('title','Editar Jogo')
 	
 @section('content')
 	
