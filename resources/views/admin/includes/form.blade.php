@@ -1,4 +1,3 @@
-@csrf
 <div class="form-group">
 		<label for="title">Título</label>
 		<input type="text" name="title" placeholder="Título do jogo" class="form-control" value="{{ old('title',$oldTitle) }}">

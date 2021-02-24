@@ -21,7 +21,7 @@
 			@if( count($games) > 0 )
 				@foreach($games as $game)	
 					<tr>
-						<td><img src="/storage/{{$game->cover}}" alt="{{$game->title}}" title="{{$game->title}}"></td>
+						<td><img src="/storage/{{$game->cover}}" alt="{{$game->title}}-cover" title="{{$game->title}}-cover"></td>
 						@for($i=1;$i<=4;$i++)
 							<td>
 								<img src="/storage/{{$game['img'.$i]}}" alt="{{$game->title}}-{{$i}}" title="{{$game->title}}-{{$i}}">

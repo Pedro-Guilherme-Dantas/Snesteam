@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->foreignId('game_id')->constrained()->onDelete('cascade');
             $table->boolean('liked');
             $table->string('content',400)->nullable();
-            $table->date('date');
+            $table->timestamps();
         });
     }
 

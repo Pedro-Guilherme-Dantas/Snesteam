@@ -36,34 +36,22 @@ class GameController extends Controller
         $game->title = $request->title;
         $game->description = $request->description;
 
-        if($request->hasFile('cover') && $request->cover->isValid()){
-            $extension = $request->cover->extension();
-            $name = md5("cover".$request->title.strtotime('now')).".".$extension;
-            $path = $request->cover->storeAs('game_covers',$name);
-            $game->cover = $path;
-        }
-
-        for($i=1;$i<=4;$i++){
-            $img = 'img'.$i;
-
+        foreach(['cover','img1','img2','img3','img4'] as $img){
             if($request->hasFile($img) && $request->$img->isValid()){
                 $extension = $request->$img->extension();
                 $name = md5($img.$request->title.strtotime('now')).".".$extension;
-                $path = $request->$img->storeAs('game_images',$name);
+
+                $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name);
                 $game->$img = $path;
             }
         }
 
-        $extension = $request->file->extension();
-        /*|*/
-        if($extension=='rar' || $extension=='zip'){
-            if($request->hasFile('file') && $request->file->isValid()){
-                $name = md5($request->title.strtotime('now')).".".$extension;
-                $path = $request->cover->storeAs('game_files',$name);
-                $game->file = $path;
-            }
-        }else
-            return redirect()->back()->with('msgZip','A extensão do arquivo deve ser .zip ou .rar');
+        if($request->hasFile('file') && $request->file->isValid()){
+            $extension = $request->file->extension();
+            $name = md5($request->title.strtotime('now')).".".$extension;
+            $path = $request->cover->storeAs('game_files',$name);
+            $game->file = $path;
+        }
 
         $game->save();
         return redirect()->route('admin.games.index')->with('msg','Jogo cadastrado com sucesso!');

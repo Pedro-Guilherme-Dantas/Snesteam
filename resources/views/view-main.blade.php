@@ -7,6 +7,7 @@
     @endif
 	<div class="col-md-6 offset-md3">
 		<h1>Exibindo os jogos</h1>
+		@if( count($games) > 0 )
 		<table class="table table-hover" id="tabelaAdmin">
 			<thead>
 				<th>Imagem Capa</th>
@@ -14,32 +15,34 @@
 				<th>Título</th>
 				<th>Descrição</th>
 				<th>Baixar</th>
+				<th>Comentarios</th>
 				<th></th>
 				<th></th>
 			</thead>
 			<tbody>
-			@if( count($games) > 0 )
 				@foreach($games as $game)	
 					<tr>
-
-						<td><img src="/storage/{{$game->cover}}" alt="{{$game->title}}" title="{{$game->title}}"></td>
-						<td><img src="/storage/{{$game->img1}}" alt="{{$game->title}}(1)" title="{{$game->title}}(1)"></td>
-						<td><img src="/storage/{{$game->img2}}" alt="{{$game->title}}(2)" title="{{$game->title}}(2)"></td>
-						<td><img src="/storage/{{$game->img3}}" alt="{{$game->title}}(3)" title="{{$game->title}}(3)"></td>
-						<td><img src="/storage/{{$game->img4}}"alt="{{$game->title}}(4)" title="{{$game->title}}(4)"></td>
+						<td><img src="/storage/{{$game->cover}}" alt="{{$game->title}}-cover" title="{{$game->title}}-cover"></td>
+						@for($i=1;$i<=4;$i++)
+							<td>
+								<img src="/storage/{{$game['img'.$i]}}" alt="{{$game->title}}-{{$i}}" title="{{$game->title}}-{{$i}}">
+							</td>
+						@endfor
 						<td>{{$game->title}}</td>
 						<td>{{$game->description}}</td>
 						<td><a href="/storage/{{$game->file}}">{{$game->title}}</a></td>
-
+						<td><a href="comments/{{$game->id}}" class="btn btn-light">Comentários</a></td>
 					</tr>
 				@endforeach
-			@else
-				<p>Não existem jogos cadastrados!</p>
-			@endif
-				
 			</tbody>
 		</table>
-		
+		@else
+		<p>Não existem jogos cadastrados!</p>
+		@endif
+		<form action="/logout" method="POST">
+			@csrf
+			<a href="/logout" class="btn btn-danger" onclick="event.preventDefault();this.closest('form').submit();">Sair</a>
+		</form>
 	</div>
 
 @endsection

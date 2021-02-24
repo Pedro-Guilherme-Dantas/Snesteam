@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateGame extends FormRequest
+class StoreUpdateComment extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,8 @@ class StoreUpdateGame extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:50',
-            'description'=>'required',
-            'cover'=> 'required|image',
-            'img1' =>'required|image',
-            'img2' =>'required|image',
-            'img3' =>'required|image',
-            'img4' =>'required|image',
-            'file'=> 'required|mimes:zip,rar',
+            'comment' => 'nullable|max:400',
+            'liked'=>'required'
         ];
     }
 }
