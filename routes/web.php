@@ -24,5 +24,6 @@ Route::delete('admin/games/{id}',[GameController::class,'destroy'])->name('admin
 Route::get('admin/games/edit/{id}',[GameController::class,'edit'])->name('admin.games.edit');
 Route::put('admin/games/{id}',[GameController::class,'update'])->name('admin.games.update');
 
-Route::get('/comments/{gameid}',[CommentController::class,'index'])->name('comments.index')->middleware('auth');
-Route::post('/comments/{gameid}/store',[CommentController::class,'store'])->name('comments.store')->middleware('auth');
+Route::get('/comments/{game_id}',[CommentController::class,'index'])->name('comments.index')->middleware('auth');
+Route::post('/comments/{game_id}/store',[CommentController::class,'store'])->name('comments.store')->middleware('auth');
+Route::delete('/comments/delete/{comment_id}',[CommentController::class,'destroy'])->name('comments.destroy')->middleware('auth');
