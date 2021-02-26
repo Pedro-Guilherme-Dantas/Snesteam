@@ -1,0 +1,194 @@
+#tabelaAdmin tbody tr td img{
+	max-width: 100px;
+}
+#msg{
+	background-color: #D4EDDA;
+	color:#155724;
+	border: 1px solid #C3E6CB;
+	width: 100%;
+	margin-bottom: 0;
+	text-align: center;
+	padding: 10px;
+}
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Cuprum', sans-serif; */
+
+.shadow-images{
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+	border-radius: 4px;
+}
+
+*{
+	outline: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Classe de Fonts */
+.cuprum{
+	font-family: 'Cuprum', sans-serif !important;
+}
+.font-14{
+	font-size: 14px;
+}
+
+.font-16{
+	font-size: 16px;
+}
+
+h2{
+	color: #fafafa;
+	font-weight: ;
+}
+
+h3{
+	color: #FAFAFA;
+}
+
+p{
+	font-size: 14px;
+	color: #fafafa;
+}
+
+body{
+	background: linear-gradient(90deg, #440F9E 0%, #A074DB 100%);
+}
+
+/* Classes de redimensionamento */
+.mr-50px{
+	margin-right: 50px;
+}
+
+.ml-50px{
+	margin-left: 50px;
+}
+
+.mx-30{
+	margin: 30px 0px;
+}
+
+.my-30{
+	margin: 0px 30px;
+}
+
+.m-30{
+	margin: 30px;
+}
+
+.px-30{
+	padding: 30px 0px;
+}
+
+.py-30{
+	padding: 0px 30px;
+}
+
+.px-custom{
+	padding: 10px 5px 0px 5px !important;
+}
+
+.p-30{
+	padding: 30px;
+}
+
+.mleft-auto{
+	margin-left: auto;
+}
+
+/* Classes de cores customizadas */
+.bg-new-dark{
+	background-color: #222;
+}
+.color-new-dark{
+	color: #222;
+}
+
+/* Barra de pesquisa */
+.search-div{
+	margin: 20px 0px;
+}
+
+.search-input{
+	background: rgba(34, 34, 34, 0.5) !important;
+	border-radius: 1000px;
+	font-size: 14px;
+	width: 100%;
+	height: 40px;
+	border: none;
+	color: #A1A1A1;
+	transition: 0.3s;
+}
+
+.search-input::placeholder{
+	color: #A1A1A1;
+	font-size: 14px;
+}
+
+.search-input:focus{
+	background: rgba(34, 34, 34, 0.8) !important;
+}
+
+
+/* Classe Games */
+.games-div{
+	background-color: rgba(34, 34, 34, 0.3);
+	border-radius: 4px;
+}
+
+/* Classes rodapé */
+.wave-div{
+	margin-bottom: -5px;
+}
+.line-title{
+	height: 50px;
+	color: #222;
+	border-bottom: 2px solid #A074DB;
+}
+
+.footer-title{
+	color: #A074DB;
+	font-size:  18px;
+	font-weight: bold;
+	list-style: none;
+}
+
+.footer{
+	height: 400px;
+}
+
+
+.footer-item{
+	font-size:  12px;
+	list-style: none;
+}
+
+.link-custom{
+	color: rgba(255,255,255, 0.55);
+	font-size:  12px;
+	text-decoration: none !important;
+	transition: 0.2s;
+}
+
+.link-custom:hover{
+	color: rgba(255,255,255,0.75);
+}
+
+.copyright{
+	font-size: 12px;
+}
+
+
+/* Others */
+.cursor-pointer{
+	cursor: pointer;
+}
+
+/* Navbar */
+.btn-logout{
+	opacity: 0.5;
+	transition: 0.2s;
+}
+
+.btn-logout:hover{
+	opacity: 0.75;
+}

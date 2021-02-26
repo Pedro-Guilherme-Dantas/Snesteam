@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUpdateComment;
 use App\Models\Game;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 
 class CommentController extends Controller
@@ -15,6 +16,8 @@ class CommentController extends Controller
     public function index($game_id){
         $game= Game::findOrFail($game_id);
         $user_id = Auth::user()->id;
+        $user_name = Auth::user()->name;
+
         $userComments = Comment::where([
             ['user_id',$user_id],
             ['game_id',$game_id]
@@ -24,7 +27,11 @@ class CommentController extends Controller
             ['game_id',$game_id]
         ])->get();
 
-        return view('user.index',['game'=>$game,'userComments'=>$userComments,'comments'=>$comments]);
+        $file_size = round(Storage::size($game->file)/1000,2);
+
+        return view('user.game-info',[
+            'game'=>$game,'userComments'=>$userComments,'comments'=>$comments,'file_size'=>$file_size
+            ]);
     }
 
     public function store($game_id,StoreUpdateComment $request){

@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUpdateGame;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class GameController extends Controller{
@@ -20,7 +21,7 @@ class GameController extends Controller{
 
 	public function indexUser(){
 		$games = Game::all();
-        return view('view-main',['games'=>$games]);
+        return view('user.view-main',['games'=>$games]);
 	}
 
     /*------------------------------------------*/
