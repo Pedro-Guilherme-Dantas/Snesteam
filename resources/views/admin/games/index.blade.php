@@ -5,8 +5,25 @@
 	@if(session('msg'))
         <p id="msg">{{ session('msg') }}</p>
     @endif
+    <div class="container">
+		<div class="row">
+			<div class="col-md">
+				<div class="search-div">
+					<form action="{{ route('admin.games.index')}}" method="GET">
+						<input class="search-input py-30" placeholder="O que está procurando?" autocomplete="off" type="text" id="search" name="search" value="{{ old('search') }}">
+					</form>	
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<div class="col-md-6 offset-md3">
-		<h1>Exibindo os jogos</h1>
+		@if($search)
+			<h4>Pesquisando por: {{$search}}</h4>
+		@endif
+		
+	    @if(count($games) > 0 )
+	    <h1>Exibindo os jogos</h1>
 		<table class="table table-hover" id="tabelaAdmin">
 			<thead>
 				<th>Imagem Capa</th>
@@ -18,18 +35,17 @@
 				<th></th>
 			</thead>
 			<tbody>
-			@if( count($games) > 0 )
-				@foreach($games as $game)	
+					@foreach($games as $game)	
 					<tr>
-						<td><img src="/storage/{{$game->cover}}" alt="{{$game->title}}-cover" title="{{$game->title}}-cover"></td>
+						<td><img src="/storage/game_covers/{{$game->cover}}" alt="{{$game->title}}-cover" title="{{$game->title}}-cover"></td>
 						@for($i=1;$i<=4;$i++)
 							<td>
-								<img src="/storage/{{$game['img'.$i]}}" alt="{{$game->title}}-{{$i}}" title="{{$game->title}}-{{$i}}">
+								<img src="/storage/game_images/{{$game['img'.$i]}}" alt="{{$game->title}}-{{$i}}" title="{{$game->title}}-{{$i}}">
 							</td>
 						@endfor
 						<td>{{$game->title}}</td>
 						<td>{{$game->description}}</td>
-						<td><a href="/storage/{{$game->file}}">{{$game->title}}</a></td>
+						<td><a href="/storage/game_files/{{$game->file}}">{{$game->title}}</a></td>
 						<td>
 							<form action="{{route('admin.games.destroy',$game->id) }}" method="POST">
 								@csrf
@@ -39,13 +55,14 @@
 						</td>
 						<td><a href="{{ route('admin.games.edit',$game->id) }}" class="btn btn-dark">Editar</a></td>
 					</tr>
-				@endforeach
-			@else
-				<p>Não existem jogos cadastrados!</p>
-			@endif
-				
+					@endforeach		
 			</tbody>
 		</table>
+		@elseif(count($games)==0 && $search)
+			<p>Não foi possível encontrar resultados com: {{$search}}! <a href="{{ route('admin.games.index') }}" id="searchlink">Ver todos os jogos</a></p>
+		@elseif(count($games)==0)
+			<p>Não existem jogos cadastrados!</p>
+		@endif
 		<a href="{{route('admin.games.create')}}" class="btn btn-dark">Adicionar Game</a>
 	</div>
 

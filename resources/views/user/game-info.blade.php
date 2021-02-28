@@ -27,10 +27,10 @@
                                     </div>
                                     {{-- Botão download --}}
                                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                        <button class="btn btn-download">
+                                        <a class="btn btn-download" href="/storage/game_files/{{$game->file}}">
                                             <img src="{{ url('img/svg/download.svg') }}">
                                             Download
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -45,16 +45,16 @@
                                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner shadow-images">
                                             <div class="carousel-item active">
-                                                <img class="d-block w-100" src="/storage/{{$game->img1}}" alt="First slide">
+                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img1}}" alt="First slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="/storage/{{$game->img2}}" alt="Second slide">
+                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img2}}" alt="Second slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="/storage/{{$game->img3}}" alt="Third slide">
+                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img3}}" alt="Third slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="/storage/{{$game->img4}}" alt="Fourth slide">
+                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img4}}" alt="Fourth slide">
                                             </div>
                                         </div>  
                                     </div>
@@ -63,16 +63,16 @@
                             {{-- Outras imagens --}}
                             <div class="row">
                                 <div class="col col-sm col-md col-lg col-lx pl-0 pt-2 pr-1">
-                                    <img src="/storage/{{$game->img1}}" data-target="#carouselExampleIndicators" data-slide-to="0" width="100%" class="active shadow-images">
+                                    <img src="/storage/game_images/{{$game->img1}}" data-target="#carouselExampleIndicators" data-slide-to="0" width="100%" class="active shadow-images">
                                 </div>
                                 <div class="col col-sm col-md col-lg col-lx p-0 pt-2 px-1">
-                                    <img src="/storage/{{$game->img2}}" data-target="#carouselExampleIndicators" data-slide-to="1" width="100%" class="shadow-images">
+                                    <img src="/storage/game_images/{{$game->img2}}" data-target="#carouselExampleIndicators" data-slide-to="1" width="100%" class="shadow-images">
                                 </div>
                                 <div class="col col-sm col-md col-lg col-lx p-0 pt-2 pl-1">
-                                    <img src="/storage/{{$game->img3}}" data-target="#carouselExampleIndicators" data-slide-to="2" width="100%" class="shadow-images">
+                                    <img src="/storage/game_images/{{$game->img3}}" data-target="#carouselExampleIndicators" data-slide-to="2" width="100%" class="shadow-images">
                                 </div>
                                 <div class="col col-sm col-md col-lg col-lx p-0 pt-2 pl-1">
-                                    <img src="/storage/{{$game->img4}}" data-target="#carouselExampleIndicators" data-slide-to="3" width="100%" class="shadow-images">
+                                    <img src="/storage/game_images/{{$game->img4}}" data-target="#carouselExampleIndicators" data-slide-to="3" width="100%" class="shadow-images">
                                 </div>
                             </div>
                         </div>  
@@ -93,7 +93,17 @@
         {{-- Comentários --}}
             <div class="row">
                 <div class="col-md-12 mt-5">
-                    <h2>Comentários</h2>
+                    <h2>Comentários</h2>     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    @if(session('msg'))
+                            <p id="msg2">{{ session('msg') }}</p>
+                        @endif
+                    @if(session('msg_error'))
+                            <p id="msg_error">{{ session('msg_error') }}</p>
+                    @endif
                 </div>
             </div>
 
@@ -117,18 +127,15 @@
                                     <form action="{{ route('comments.store',$game->id) }}" method="POST">
                                         @csrf
                                         <div class="row border border-secondary">
-                                            <input type="text" name="comment" class="comment-input p-2" placeholder='Comente aqui...'>
-                                            
+                                            <input type="text" name="comment" class="comment-input p-2" placeholder='Comente aqui...'>                                          
                                             <input id="like" type="radio" name="liked" value="like" required>
                                             <label class="like-label" for="like" id="avaliation" onclick="alternate()">
                                                 <img width="20px" src="{{ url('img/img/white.png') }}">
                                             </label>
-
                                             <input id="dislike" type="radio" name="liked" value="dislike" name="llked" required>
                                             <label class="like-label" for="dislike" id="avaliation2" onclick="alternate2()" >
                                                 <img class="img-rotate" width="20px" src="{{ url('img/img/white.png') }}">
                                             </label>
-
                                             <button type="submit" class="btn-send">
                                                 <svg width="30px" fill="#FAFAFA" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 488.721 488.721" style="enable-background:new 0 0 488.721 488.721;" xml:space="preserve">
                                                 <g>
@@ -145,7 +152,6 @@
                                 </div>      
                             </div>
                         </div>
-
                         {{-- Comentário 1 --}}
                         @foreach($userComments as $comment)
                         <div class="games-div mb-3">

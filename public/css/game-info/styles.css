@@ -104,3 +104,21 @@ h1{
 .like-label:hover{
     cursor: pointer;
 }
+#msg_error{
+    background-color: #EE3333;
+    color:#FAFAFA;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+#msg2{
+    background-color: #1DB63E;
+    color:#FAFAFA;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}

@@ -69,7 +69,7 @@
 	</nav>
 
 	{{-- Barra de Pesquisa --}}
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row">
 			<div class="col-md">
 				<div class="search-div">
@@ -78,7 +78,7 @@
 			</div>
 
 		</div>
-	</div>
+	</div> -->
 	@yield('content')
 
 	{{-- Rodapé --}}

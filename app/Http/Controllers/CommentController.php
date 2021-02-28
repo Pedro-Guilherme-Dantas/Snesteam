@@ -17,18 +17,17 @@ class CommentController extends Controller
         $game= Game::findOrFail($game_id);
         $user_id = Auth::user()->id;
         $user_name = Auth::user()->name;
-
+  
         $userComments = Comment::where([
-            ['user_id',$user_id],
+            ['user_id',$user_id], // comentário do user logado
             ['game_id',$game_id]
         ])->get();
-        $comments = Comment::where([
+        $comments = Comment::where([ // comentários de terceiros
             ['user_id','!=',$user_id],
             ['game_id',$game_id]
         ])->get();
 
-        $file_size = round(Storage::size($game->file)/1000,2);
-
+        $file_size = round(Storage::size('game_files/'.$game->file)/1000,2);
         return view('user.game-info',[
             'game'=>$game,'userComments'=>$userComments,'comments'=>$comments,'file_size'=>$file_size
             ]);

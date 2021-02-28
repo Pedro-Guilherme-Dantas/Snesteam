@@ -13,15 +13,31 @@ use Illuminate\Support\Facades\Storage;
 class GameController extends Controller{
 
     public function index(){
-        $games = Game::all();
-        return view('admin.games.index',['games'=>$games]);
+        $search = request('search');
+        if($search){
+            $games = Game::where([
+                ['title','like','%'.$search.'%']
+            ])->get();
+        }else{
+           $games = Game::all(); 
+        }
+        
+        return view('admin.games.index',['games'=>$games,'search'=>$search]);
     }
 
     /*------------------------------------------*/
 
 	public function indexUser(){
-		$games = Game::all();
-        return view('user.view-main',['games'=>$games]);
+        $search= request('search');
+        if($search){
+            $games = Game::where([
+                ['title','like','%'.$search.'%']
+            ])->get();
+        }else{
+           $games = Game::all(); 
+        }
+		
+        return view('user.view-main',['games'=>$games,'search'=>$search]);
 	}
 
     /*------------------------------------------*/
@@ -44,7 +60,7 @@ class GameController extends Controller{
                 $name = md5($img.$request->title.strtotime('now')).".".$extension;
 
                 $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name);
-                $game->$img = $path;
+                $game->$img = $name;
             }
         }
 
@@ -52,7 +68,7 @@ class GameController extends Controller{
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
             $path = $request->cover->storeAs('game_files',$name);
-            $game->file = $path;
+            $game->file = $name;
         }
 
         $game->save();
@@ -78,7 +94,7 @@ class GameController extends Controller{
                 $name = md5($img.$request->title.strtotime('now')).".".$extension;
 
                 $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name);
-                $data[$img] = $path;
+                $data[$img] = $name;
             }
         }
 
@@ -86,10 +102,10 @@ class GameController extends Controller{
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
             $path = $request->cover->storeAs('game_files',$name);
-            $data['file'] = $path;
+            $data['file'] = $name;
         }
 
-        Storage::delete([$game->cover,$game->img1,$game->img2,$game->img3,$game->img4,$game->file]);
+        Storage::delete(['game_covers/'.$game->cover,'game_images/'.$game->img1,'game_images/'.$game->img2,'game_images/'.$game->img3,'game_images/'.$game->img4,'game_files/'.$game->file]);
 
         $game->update($data);
         return redirect()->route('admin.games.index')->with('msg','Jogo editado com sucesso!');
@@ -100,7 +116,7 @@ class GameController extends Controller{
     public function destroy($id){
         $game = Game::findOrFail($id);
         
-        Storage::delete([$game->cover,$game->img1,$game->img2,$game->img3,$game->img4,$game->file]);
+        Storage::delete(['game_covers/'.$game->cover,'game_images/'.$game->img1,'game_images/'.$game->img2,'game_images/'.$game->img3,'game_images/'.$game->img4,'game_files/'.$game->file]);
             
         $game->delete();
         return redirect()->route('admin.games.index')->with('msg','Jogo deletado com sucesso!');  

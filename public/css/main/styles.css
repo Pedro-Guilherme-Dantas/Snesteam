@@ -192,3 +192,7 @@ body{
 .btn-logout:hover{
 	opacity: 0.75;
 }
+#searchlink{
+	/*text-decoration: none;*/
+	color: #FAFAFA;
+}
