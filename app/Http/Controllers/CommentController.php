@@ -17,7 +17,7 @@ class CommentController extends Controller
         $game= Game::findOrFail($game_id);
         $user_id = Auth::user()->id;
         $user_name = Auth::user()->name;
-  
+
         $userComments = Comment::where([
             ['user_id',$user_id], // comentário do user logado
             ['game_id',$game_id]

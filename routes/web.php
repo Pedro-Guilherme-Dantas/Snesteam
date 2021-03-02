@@ -31,3 +31,6 @@ Route::post('/comments/{game_id}/store',[CommentController::class,'store'])->nam
 Route::delete('/comments/delete/{comment_id}',[CommentController::class,'destroy'])->name('comments.destroy')->middleware('auth');
 //-----------------------------COMMENTS-----------------------------------
 
+Route::get("/games/about",[GameController::class,'about'])->name('about')->middleware('auth');
+Route::get("/games/emulators",[GameController::class,'emulators'])->name('emulators')->middleware('auth');
+

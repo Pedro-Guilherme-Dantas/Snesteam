@@ -14,31 +14,33 @@ class GameController extends Controller{
 
     public function index(){
         $search = request('search');
-        if($search){
-            $games = Game::where([
-                ['title','like','%'.$search.'%']
-            ])->get();
-        }else{
-           $games = Game::all(); 
-        }
+        $games = $search ? 
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::all();
         
         return view('admin.games.index',['games'=>$games,'search'=>$search]);
     }
 
     /*------------------------------------------*/
 
-	public function indexUser(){
-        $search= request('search');
-        if($search){
-            $games = Game::where([
-                ['title','like','%'.$search.'%']
-            ])->get();
-        }else{
-           $games = Game::all(); 
-        }
+	public function indexUser(){  
+        $search = request('search');
+        $games = $search ? 
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::all();
 		
         return view('user.view-main',['games'=>$games,'search'=>$search]);
 	}
+
+    /*------------------------------------------*/
+
+    public function about(){
+        return view('user.about');
+    }
+
+    /*------------------------------------------*/
+
+    public function emulators(){
+        return view('user.emulators');
+    }
 
     /*------------------------------------------*/
 

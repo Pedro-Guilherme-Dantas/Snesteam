@@ -47,10 +47,10 @@
 						<a class="nav-link" aria-current="page" href="{{ route('view-main') }}">CATÁLOGO</a>
 					</li>
 					<li class="nav-item mr-50px">
-						<a class="nav-link" href="#">EMULADORES</a>
+						<a class="nav-link" href="{{ route('emulators') }}">EMULADORES</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">SOBRE</a>
+						<a class="nav-link" href="{{ route('about') }}">SOBRE</a>
 					</li>
 					{{-- Btn Logout --}}
 					<li class="nav-item mleft-auto">

@@ -7,6 +7,7 @@
 @section('user_name',Auth::user()->name)
 
 @section('content')
+    <br><br>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
