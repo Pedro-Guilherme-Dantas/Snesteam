@@ -17,13 +17,13 @@
 
 		</div>
 	</div>
-	<div class="col-md-6 offset-md3">
+	<div class="col-md-12 offset-md3">
 		@if($search)
 			<h4>Pesquisando por: {{$search}}</h4>
 		@endif
 		
 	    @if(count($games) > 0 )
-	    <h1>Exibindo os jogos</h1>
+	    <h1 id="EJ">Exibindo os jogos</h1>
 		<table class="table table-hover" id="tabelaAdmin">
 			<thead>
 				<th>Imagem Capa</th>
@@ -63,6 +63,15 @@
 		@elseif(count($games)==0)
 			<p>Não existem jogos cadastrados!</p>
 		@endif
+		<div class="row">
+			<div class="col-12">
+				<div class="paginate">
+					@if(!$search)
+						{{ $games->links() }}
+					@endif
+				</div>	
+			</div>
+		</div>	
 		<a href="{{route('admin.games.create')}}" class="btn btn-dark">Adicionar Game</a>
 	</div>
 

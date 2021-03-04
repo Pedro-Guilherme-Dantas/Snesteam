@@ -15,7 +15,7 @@ class GameController extends Controller{
     public function index(){
         $search = request('search');
         $games = $search ? 
-        Game::where([['title','like','%'.$search.'%']])->get() : Game::all();
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(4);
         
         return view('admin.games.index',['games'=>$games,'search'=>$search]);
     }
@@ -25,7 +25,7 @@ class GameController extends Controller{
 	public function indexUser(){  
         $search = request('search');
         $games = $search ? 
-        Game::where([['title','like','%'.$search.'%']])->get() : Game::all();
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(8);
 		
         return view('user.view-main',['games'=>$games,'search'=>$search]);
 	}
@@ -69,7 +69,7 @@ class GameController extends Controller{
         if($request->hasFile('file') && $request->file->isValid()){
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
-            $path = $request->cover->storeAs('game_files',$name);
+            $path = $request->file->storeAs('game_files',$name);
             $game->file = $name;
         }
 
@@ -103,7 +103,7 @@ class GameController extends Controller{
         if($request->hasFile('file') && $request->file->isValid()){
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
-            $path = $request->cover->storeAs('game_files',$name);
+            $path = $request->file->storeAs('game_files',$name);
             $data['file'] = $name;
         }
 
@@ -121,7 +121,7 @@ class GameController extends Controller{
         Storage::delete(['game_covers/'.$game->cover,'game_images/'.$game->img1,'game_images/'.$game->img2,'game_images/'.$game->img3,'game_images/'.$game->img4,'game_files/'.$game->file]);
             
         $game->delete();
-        return redirect()->route('admin.games.index')->with('msg','Jogo deletado com sucesso!');  
+        return redirect()->back()->with('msg','Jogo deletado com sucesso!');  
     }
 
 }
