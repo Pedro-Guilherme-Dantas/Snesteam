@@ -61,7 +61,7 @@ class GameController extends Controller{
                 $extension = $request->$img->extension();
                 $name = md5($img.$request->title.strtotime('now')).".".$extension;
 
-                $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name);
+                $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name,'s3');
                 $game->$img = $name;
             }
         }
@@ -69,7 +69,7 @@ class GameController extends Controller{
         if($request->hasFile('file') && $request->file->isValid()){
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
-            $path = $request->cover->storeAs('game_files',$name);
+            $path = $request->cover->storeAs('game_files',$name,'s3');
             $game->file = $name;
         }
 
@@ -95,7 +95,7 @@ class GameController extends Controller{
                 $extension = $request->$img->extension();
                 $name = md5($img.$request->title.strtotime('now')).".".$extension;
 
-                $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name);
+                $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name,'s3');
                 $data[$img] = $name;
             }
         }
@@ -103,11 +103,13 @@ class GameController extends Controller{
         if($request->hasFile('file') && $request->file->isValid()){
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
-            $path = $request->cover->storeAs('game_files',$name);
+            $path = $request->cover->storeAs('game_files',$name,'s3');
             $data['file'] = $name;
         }
 
-        Storage::delete(['game_covers/'.$game->cover,'game_images/'.$game->img1,'game_images/'.$game->img2,'game_images/'.$game->img3,'game_images/'.$game->img4,'game_files/'.$game->file]);
+        Storage::disk('s3')->delete(
+            ['game_covers/'.$game->cover,'game_images/'.$game->img1,'game_images/'.$game->img2,'game_images/'.$game->img3,'game_images/'.$game->img4,'game_files/'.$game->file]
+        );
 
         $game->update($data);
         return redirect()->route('admin.games.index')->with('msg','Jogo editado com sucesso!');
@@ -118,7 +120,9 @@ class GameController extends Controller{
     public function destroy($id){
         $game = Game::findOrFail($id);
         
-        Storage::delete(['game_covers/'.$game->cover,'game_images/'.$game->img1,'game_images/'.$game->img2,'game_images/'.$game->img3,'game_images/'.$game->img4,'game_files/'.$game->file]);
+        Storage::disk('s3')->delete(
+            ['game_covers/'.$game->cover,'game_images/'.$game->img1,'game_images/'.$game->img2,'game_images/'.$game->img3,'game_images/'.$game->img4,'game_files/'.$game->file]
+        );
             
         $game->delete();
         return redirect()->route('admin.games.index')->with('msg','Jogo deletado com sucesso!');  

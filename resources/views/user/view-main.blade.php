@@ -28,7 +28,7 @@
 							@foreach($games as $game)
 								<div class="col-xl-3">
 									<a href="/comments/{{$game->id}}">
-										<img width="100%" src="/storage/game_covers/{{$game->cover}}" alt="{{$game->title}}" title="{{$game->title}}">
+										<img width="100%" src="{{Storage::disk('s3')->url('game_covers/'.$game->cover)}}" alt="{{$game->title}}" title="{{$game->title}}">
 									</a>
 								</div>
 							@endforeach
