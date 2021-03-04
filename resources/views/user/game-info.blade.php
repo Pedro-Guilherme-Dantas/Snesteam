@@ -49,13 +49,13 @@
                                                 <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img1)}}" alt="First slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img1)}}" alt="Second slide">
+                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img2)}}" alt="Second slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img1)}}" alt="Third slide">
+                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img3)}}" alt="Third slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img1)}}" alt="Fourth slide">
+                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img4)}}" alt="Fourth slide">
                                             </div>
                                         </div>  
                                     </div>

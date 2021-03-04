@@ -69,7 +69,7 @@ class GameController extends Controller{
         if($request->hasFile('file') && $request->file->isValid()){
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
-            $path = $request->cover->storeAs('game_files',$name,'s3');
+            $path = $request->file->storeAs('game_files',$name,'s3');
             $game->file = $name;
         }
 
@@ -103,7 +103,7 @@ class GameController extends Controller{
         if($request->hasFile('file') && $request->file->isValid()){
             $extension = $request->file->extension();
             $name = md5($request->title.strtotime('now')).".".$extension;
-            $path = $request->cover->storeAs('game_files',$name,'s3');
+            $path = $request->file->storeAs('game_files',$name,'s3');
             $data['file'] = $name;
         }
 
