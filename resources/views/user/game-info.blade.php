@@ -28,7 +28,7 @@
                                     </div>
                                     {{-- Botão download --}}
                                     <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                        <a class="btn btn-download" href="/storage/game_files/{{$game->file}}">
+                                        <a class="btn btn-download" href="{{Storage::disk('s3')->url('game_files/'.$game->file)}}"">
                                             <img src="{{ url('img/svg/download.svg') }}">
                                             Download
                                         </a>
@@ -46,16 +46,16 @@
                                     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner shadow-images">
                                             <div class="carousel-item active">
-                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img1}}" alt="First slide">
+                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img1)}}" alt="First slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img2}}" alt="Second slide">
+                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img2)}}" alt="Second slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img3}}" alt="Third slide">
+                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img3)}}" alt="Third slide">
                                             </div>
                                             <div class="carousel-item">
-                                                <img class="d-block w-100" src="/storage/game_images/{{$game->img4}}" alt="Fourth slide">
+                                                <img class="d-block w-100" src="{{Storage::disk('s3')->url('game_images/'.$game->img4)}}" alt="Fourth slide">
                                             </div>
                                         </div>  
                                     </div>
@@ -64,16 +64,16 @@
                             {{-- Outras imagens --}}
                             <div class="row">
                                 <div class="col col-sm col-md col-lg col-lx pl-0 pt-2 pr-1">
-                                    <img src="/storage/game_images/{{$game->img1}}" data-target="#carouselExampleIndicators" data-slide-to="0" width="100%" class="active shadow-images">
+                                    <img src="{{Storage::disk('s3')->url('game_images/'.$game->img1)}}" data-target="#carouselExampleIndicators" data-slide-to="0" width="100%" class="active shadow-images">
                                 </div>
                                 <div class="col col-sm col-md col-lg col-lx p-0 pt-2 px-1">
-                                    <img src="/storage/game_images/{{$game->img2}}" data-target="#carouselExampleIndicators" data-slide-to="1" width="100%" class="shadow-images">
+                                    <img src="{{Storage::disk('s3')->url('game_images/'.$game->img2)}}" data-target="#carouselExampleIndicators" data-slide-to="1" width="100%" class="shadow-images">
                                 </div>
                                 <div class="col col-sm col-md col-lg col-lx p-0 pt-2 pl-1">
-                                    <img src="/storage/game_images/{{$game->img3}}" data-target="#carouselExampleIndicators" data-slide-to="2" width="100%" class="shadow-images">
+                                    <img src="{{Storage::disk('s3')->url('game_images/'.$game->img3)}}" data-target="#carouselExampleIndicators" data-slide-to="2" width="100%" class="shadow-images">
                                 </div>
                                 <div class="col col-sm col-md col-lg col-lx p-0 pt-2 pl-1">
-                                    <img src="/storage/game_images/{{$game->img4}}" data-target="#carouselExampleIndicators" data-slide-to="3" width="100%" class="shadow-images">
+                                    <img src="{{Storage::disk('s3')->url('game_images/'.$game->img4)}}" data-target="#carouselExampleIndicators" data-slide-to="3" width="100%" class="shadow-images">
                                 </div>
                             </div>
                         </div>  

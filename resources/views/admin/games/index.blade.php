@@ -37,15 +37,15 @@
 			<tbody>
 					@foreach($games as $game)	
 					<tr>
-						<td><img src="/storage/game_covers/{{$game->cover}}" alt="{{$game->title}}-cover" title="{{$game->title}}-cover"></td>
+						<td><img src="{{Storage::disk('s3')->url('game_covers/'.$game->cover)}}" alt="{{$game->title}}-cover" title="{{$game->title}}-cover"></td>
 						@for($i=1;$i<=4;$i++)
 							<td>
-								<img src="/storage/game_images/{{$game['img'.$i]}}" alt="{{$game->title}}-{{$i}}" title="{{$game->title}}-{{$i}}">
+								<img src="{{Storage::disk('s3')->url('game_images/'.$game['img'.$i])}}" alt="{{$game->title}}-{{$i}}" title="{{$game->title}}-{{$i}}">
 							</td>
 						@endfor
 						<td>{{$game->title}}</td>
 						<td>{{$game->description}}</td>
-						<td><a href="/storage/game_files/{{$game->file}}">{{$game->title}}</a></td>
+						<td><a href="{{Storage::disk('s3')->url('game_files/'.$game->file)}}">{{$game->title}}</a></td>
 						<td>
 							<form action="{{route('admin.games.destroy',$game->id) }}" method="POST">
 								@csrf

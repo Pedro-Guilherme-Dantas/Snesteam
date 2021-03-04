@@ -27,7 +27,8 @@ class CommentController extends Controller
             ['game_id',$game_id]
         ])->get();
 
-        $file_size = round(Storage::size('game_files/'.$game->file)/1000,2);
+        $file_size = round(Storage::disk('s3')->size('game_files/'.$game->file)/1000,2);
+        
         return view('user.game-info',[
             'game'=>$game,'userComments'=>$userComments,'comments'=>$comments,'file_size'=>$file_size
             ]);
