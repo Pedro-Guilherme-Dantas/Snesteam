@@ -35,11 +35,20 @@
 							@if($search && count($games)==0)
 								<p>Sem resultados para "{{$search}}"</p>
 								<a href="/games" id="searchlink">Ver todos os jogos</a>
-							@endif
+							@endif	
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>	
+		<div class="row">
+			<div class="col-12">
+				<div class="paginate">
+					@if(!$search)
+						{{ $games->links() }}
+					@endif
+				</div>	
+			</div>
+		</div>	
 	</div>
 
 @endsection

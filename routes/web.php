@@ -11,11 +11,11 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/games',[GameController::class,'indexUser'])->name('view-main');
 
 
-/*-Dashboard padrao do
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
-    return view('dashboard');
-})->name('dashboard');
-*/
+// -Dashboard padrao do
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
+//     return view('dashboard');
+// })->name('dashboard');
+
 //-----------------------------ADMIN-----------------------------------
 Route::get('/admin/games',[GameController::class,'index'])->name('admin.games.index');
 Route::get('admin/games/create',[GameController::class,'create'])->name('admin.games.create');

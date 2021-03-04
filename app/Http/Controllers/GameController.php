@@ -15,7 +15,7 @@ class GameController extends Controller{
     public function index(){
         $search = request('search');
         $games = $search ? 
-        Game::where([['title','like','%'.$search.'%']])->get() : Game::all();
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(4);
         
         return view('admin.games.index',['games'=>$games,'search'=>$search]);
     }
@@ -25,7 +25,7 @@ class GameController extends Controller{
 	public function indexUser(){  
         $search = request('search');
         $games = $search ? 
-        Game::where([['title','like','%'.$search.'%']])->get() : Game::all();
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(8);
 		
         return view('user.view-main',['games'=>$games,'search'=>$search]);
 	}
@@ -56,11 +56,10 @@ class GameController extends Controller{
         $game->title = $request->title;
         $game->description = $request->description;
 
-        foreach(['cover','img1','img2','img3','img4'] as $img){
+        foreach(['cover','img1','img2','img3','img4'] as $img) {
             if($request->hasFile($img) && $request->$img->isValid()){
                 $extension = $request->$img->extension();
                 $name = md5($img.$request->title.strtotime('now')).".".$extension;
-
                 $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name,'s3');
                 $game->$img = $name;
             }
@@ -86,7 +85,7 @@ class GameController extends Controller{
 
     /*------------------------------------------*/
 
-    public function update(StoreUpdateGame $request,$id){
+    public function update(StoreUpdateGame $request,$id) {
         $game= Game::findOrFail($id);
         $data = $request->all();
         
@@ -94,7 +93,6 @@ class GameController extends Controller{
             if($request->hasFile($img) && $request->$img->isValid()){
                 $extension = $request->$img->extension();
                 $name = md5($img.$request->title.strtotime('now')).".".$extension;
-
                 $path = $request->$img->storeAs($img=='cover'?'game_covers':'game_images',$name,'s3');
                 $data[$img] = $name;
             }
@@ -115,8 +113,6 @@ class GameController extends Controller{
         return redirect()->route('admin.games.index')->with('msg','Jogo editado com sucesso!');
     }
 
-    /*------------------------------------------*/
-
     public function destroy($id){
         $game = Game::findOrFail($id);
         
@@ -125,7 +121,7 @@ class GameController extends Controller{
         );
             
         $game->delete();
-        return redirect()->route('admin.games.index')->with('msg','Jogo deletado com sucesso!');  
+        return redirect()->back()->with('msg','Jogo deletado com sucesso!');  
     }
 
 }
