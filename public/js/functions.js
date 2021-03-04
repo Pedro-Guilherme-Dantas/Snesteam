@@ -1,4 +1,4 @@
-//*
+//---
 function alternate(){
     document.getElementById('avaliation').innerHTML = "<img id='avaliation' width='20px' src='/img/img/like.png'>";
     document.getElementById('avaliation2').innerHTML = "<img id='avaliation' class='img-rotate' width='20px' src='/img/img/white.png'>";
