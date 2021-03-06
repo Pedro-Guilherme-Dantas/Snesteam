@@ -8,13 +8,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/games',[GameController::class,'indexUser'])->name('view-main');
-
+Route::get('/games',[GameController::class,'indexUser'])->name('view-main');
 
 // -Dashboard padrao do
-// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
-//     return view('dashboard');
-// })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
+    return redirect()->route('view-main');
+})->name('dashboard');
 
 //-----------------------------ADMIN-----------------------------------
 Route::get('/admin/games',[GameController::class,'index'])->name('admin.games.index');
