@@ -16,6 +16,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
     return redirect()->route('view-main');
 })->name('dashboard');
 
+<<<<<<< HEAD
 Route::middleware(['authadmin'])->group( function(){
 	//-----------------------------ADMIN GAMES-----------------------------------
 	Route::get('/admin/games',[GameController::class,'index'])->name('admin.games.index');
@@ -31,6 +32,16 @@ Route::middleware(['authadmin'])->group( function(){
 	Route::delete('admin/users/{id}',[UserController::class,'destroy'])->name('admin.users.destroy');
 	//-----------------------------ADMIN USERS-----------------------------------
 });
+=======
+//-----------------------------ADMIN-----------------------------------
+Route::get('/admin/games',[GameController::class,'index'])->name('admin.games.index');
+Route::get('admin/games/create',[GameController::class,'create'])->name('admin.games.create');
+Route::post('admin/games/store',[GameController::class,'store'])->name('admin.games.store');
+Route::delete('admin/games/{id}',[GameController::class,'destroy'])->name('admin.games.destroy');
+Route::get('admin/games/edit/{id}',[GameController::class,'edit'])->name('admin.games.edit');
+Route::put('admin/games/{id}',[GameController::class,'update'])->name('admin.games.update');
+//-----------------------------ADMIN-----------------------------------
+>>>>>>> 4df58919e0045f46ac43536b13df23d9cf1d8f37
 
 //-----------------------------COMMENTS-----------------------------------
 Route::get('/comments/{game_id}',[CommentController::class,'index'])->name('comments.index')->middleware('auth');
