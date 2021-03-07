@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin.main')
 @section('title','Adicionar Jogo')
 	
 @section('content')	

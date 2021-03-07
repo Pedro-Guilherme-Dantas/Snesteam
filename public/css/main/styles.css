@@ -4,6 +4,9 @@
 #tabelaAdmin{
 	color: #FAFAFA;
 }
+#tabelaAdmin tr:hover{
+	color: #FAFAFA;
+}
 #tabelaAdmin tbody a{
 	color: #FAFAFA;
 }
