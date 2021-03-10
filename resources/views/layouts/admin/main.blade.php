@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-new-dark h-100px">
         <div class="container">
             {{-- Logo --}}
-            <a class="navbar-brand mr-50px" href="{{ route('admin.users.index') }}">
+            <a class="navbar-brand mr-50px" href="{{ route('admin.games.index') }}">
                 <img src="/img/svg/icon-navbar.svg" alt="">
             </a>
 
@@ -50,7 +50,7 @@
                         <a class="nav-link" href="{{ route('admin.games.index') }}">GAMES</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">COMENTÁRIOS</a>
+                        <a class="nav-link" href="{{route('admin.comments.index')}}">COMENTÁRIOS</a>
                     </li>
                     {{-- Btn Logout --}}
                     <li class="nav-item mleft-auto">

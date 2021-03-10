@@ -24,8 +24,8 @@
 					@if($search)
 						<h4>Pesquisando por: {{$search}}</h4>
 					@endif	
-	    			@if(count($users) > 0 )
-					    <h1 id="EJ">Exibindo os usuários</h1>
+				@if(count($users) > 0 )
+					<h1 id="EJ">Exibindo os usuários</h1>
 						<table class="table table-hover" id="tabelaAdmin">
 							<thead>
 								<th>Nome</th>

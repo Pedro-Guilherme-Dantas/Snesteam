@@ -15,11 +15,9 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-xl-6">
                     <h1 class="font-30">Emulador</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet faucibus mauris. Ut lacinia id massa vel fringilla. 
-                            Integer elementum neque eget consectetur molestie. Pellentesque sed risus at tellus feugiat scelerisque et id nibh. 
-                            Curabitur accumsan volutpat dui ut blandit. Duis et dui placerat, posuere nibh vel, tincidunt nunc. Suspendisse 
-                            potenti. Etiam rutrum neque urna, sit amet semper ligula mollis sit amet. Vestibulum viverra fringilla tortor, 
-                            non congue elit accumsan sit amet.</p>
+                    <p>Um emulador é responsável por reproduzir funções de um ambiente, neste caso, o emulador será o responsável por executar os jogos
+                        de Super Nintendo no computador ou smartphone. Basta abrir o emulador, abrir nele o arquivo do jogo, configurar o emulador de
+                        acordo com sua preferéncia e jogar. Existem muitos emuladores por aí, com uma rápida pesquisa é possível achar várias opções.</p>
                 </div>
 
                 <div class="col-md-6 col-lg-6 col-xl-6 text-center">
@@ -33,11 +31,9 @@
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-xl-6">
                     <h1 class="font-30">Snes9x</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet faucibus mauris. Ut lacinia id massa vel fringilla. 
-                            Integer elementum neque eget consectetur molestie. Pellentesque sed risus at tellus feugiat scelerisque et id nibh. 
-                            Curabitur accumsan volutpat dui ut blandit. Duis et dui placerat, posuere nibh vel, tincidunt nunc. Suspendisse 
-                            potenti. Etiam rutrum neque urna, sit amet semper ligula mollis sit amet. Vestibulum viverra fringilla tortor, 
-                            non congue elit accumsan sit amet.</p>
+                    <p>O emulador Snes9x está a muito tempo no mercado e não deixa a desejar na qualidade, desempenho e compatibilidade, sem dúvidas uma das melhores
+                        opções de emulador de Super Nintendo para computador. Abaixo você poderá acessar a página de download e baixar a versão mais recente e compatível
+                        com seu sistema operacional.</p>
                 </div>
 
                 <div class="col-md-6 col-lg-6 col-xl-6 text-center">
@@ -51,14 +47,13 @@
                         <div class="row">
                             {{-- Tamanho --}}
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-center">
-                                <p class="size-game">Tamanho: 1.23 MB</p>
+                                <p class="size-game">Página de download</p>
                             </div>
                             {{-- Botão download --}}
                             <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                <button class="btn btn-download">
-                                    <img src="{{ url('img/svg/download.svg') }}">
-                                    Download
-                                </button>
+                                <a href='https://sites.google.com/site/bearoso/' target="_blank" class="btn btn-download">
+                                    Acessar ➔
+                                </a>
                             </div>
                         </div>
                     </div>

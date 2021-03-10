@@ -6,29 +6,52 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateGame;
 use Illuminate\Http\Request;
 use App\Models\Game;
-use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class GameController extends Controller{
 
-    public function index(){
+    public function index_admin(){
         $search = request('search');
         $games = $search ? 
-        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(1);
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(10);
         
         return view('admin.games.index',['games'=>$games,'search'=>$search]);
     }
 
     /*------------------------------------------*/
 
-	public function indexUser(){  
+	public function index_user(){  
         $search = request('search');
         $games = $search ? 
-        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(1);
+        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(12);
 		
         return view('user.view-main',['games'=>$games,'search'=>$search]);
 	}
+
+    /*------------------------------------------*/
+
+    public function game_info($game_id){
+        $game= Game::findOrFail($game_id);
+        $user_id = Auth::user()->id;
+        $user_name = Auth::user()->name;
+
+        $userComments = Comment::where([
+            ['user_id',$user_id], // comentário do user logado
+            ['game_id',$game_id]
+        ])->get();
+        $comments = Comment::where([ // comentários de terceiros
+            ['user_id','!=',$user_id],
+            ['game_id',$game_id]
+        ])->get();
+
+        $file_size = round(Storage::disk('s3')->size('game_files/'.$game->file)/1000,2);
+        
+        return view('user.game-info',[
+            'game'=>$game,'userComments'=>$userComments,'comments'=>$comments,'file_size'=>$file_size
+            ]);
+    }
 
     /*------------------------------------------*/
 

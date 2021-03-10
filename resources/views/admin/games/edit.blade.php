@@ -2,7 +2,6 @@
 @section('title','Editar Jogo')
 	
 @section('content')
-	
 	<div id="event-create-container" class="col-md-6 offset-md3" id="divFormEdit">
 		<h1>Editar Jogo -  {{$game->title}} </h1>
 		<form action="{{ route('admin.games.update',$game->id) }}" method="POST" enctype="multipart/form-data" id="formEdit">

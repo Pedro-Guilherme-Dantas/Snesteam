@@ -5,38 +5,40 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\CommentController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/games',[GameController::class,'indexUser'])->name('view-main');
+Route::get('/', function(){return redirect('/games');});
 
-// -Dashboard padrao do
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
-    return redirect()->route('view-main');
-})->name('dashboard');
-
-Route::middleware(['authadmin'])->group( function(){
-	//-----------------------------ADMIN GAMES-----------------------------------
-	Route::get('/admin/games',[GameController::class,'index'])->name('admin.games.index');
-	Route::get('admin/games/create',[GameController::class,'create'])->name('admin.games.create');
-	Route::post('admin/games/store',[GameController::class,'store'])->name('admin.games.store');
-	Route::delete('admin/games/{id}',[GameController::class,'destroy'])->name('admin.games.destroy');
-	Route::get('admin/games/edit/{id}',[GameController::class,'edit'])->name('admin.games.edit');
-	Route::put('admin/games/{id}',[GameController::class,'update'])->name('admin.games.update');
-	//-----------------------------ADMIN GAMES-----------------------------------
-
-	//-----------------------------ADMIN USERS-----------------------------------
-	Route::get('/admin/users',[UserController::class,'index'])->name('admin.users.index');
-	Route::delete('admin/users/{id}',[UserController::class,'destroy'])->name('admin.users.destroy');
-	//-----------------------------ADMIN USERS-----------------------------------
+    return redirect('/games');
 });
 
-//-----------------------------COMMENTS-----------------------------------
-Route::get('/comments/{game_id}',[CommentController::class,'index'])->name('comments.index')->middleware('auth');
-Route::post('/comments/{game_id}/store',[CommentController::class,'store'])->name('comments.store')->middleware('auth');
-Route::delete('/comments/delete/{comment_id}',[CommentController::class,'destroy'])->name('comments.destroy')->middleware('auth');
-//-----------------------------COMMENTS-----------------------------------
+/*------------------------------------------*/
 
-Route::get("/games/about",[GameController::class,'about'])->name('about')->middleware('auth');
-Route::get("/games/emulators",[GameController::class,'emulators'])->name('emulators')->middleware('auth');
+Route::group(['middleware'=>'auth','prefix'=>'games'],function(){
+	Route::get('/',[GameController::class,'index_user'])->name('view-main');
+
+	Route::get('/{game_id}',[GameController::class,'game_info'])->name('comments.index');
+	Route::post('/{game_id}/store',[CommentController::class,'store'])->name('comments.store');
+	Route::delete('/delete/{comment_id}',[CommentController::class,'destroy'])->name('comments.destroy');
+	
+	Route::get("/about",[GameController::class,'about'])->name('about');
+	Route::get("/emulators",[GameController::class,'emulators'])->name('emulators');
+});
+
+/*------------------------------------------*/
+
+Route::group(['middleware'=>'authadmin','prefix'=>'admin'],function(){
+	Route::get('/',function(){return redirect('/admin/games');});
+
+	Route::get('/games',[GameController::class,'index_admin'])->name('admin.games.index');
+	Route::get('/games/create',[GameController::class,'create'])->name('admin.games.create');
+	Route::post('/games/store',[GameController::class,'store'])->name('admin.games.store');
+	Route::delete('/games/{id}',[GameController::class,'destroy'])->name('admin.games.destroy');
+	Route::get('/games/edit/{id}',[GameController::class,'edit'])->name('admin.games.edit');
+	Route::put('/games/{id}',[GameController::class,'update'])->name('admin.games.update');
+
+	Route::get('/users',[UserController::class,'index_admin'])->name('admin.users.index');
+	Route::delete('/users/{id}',[UserController::class,'destroy'])->name('admin.users.destroy');
+
+	Route::get('/comments',[CommentController::class,'index_admin'])->name('admin.comments.index');
+});
