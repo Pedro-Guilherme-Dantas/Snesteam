@@ -203,7 +203,7 @@
                                     
                                     <div class="row">
                                         <div class="col-10 col-sm-11 col-md-11">
-                                            <p>{{$comment->content}}</p>
+                                            <p class="dont-break-out">{{$comment->content}}</p>
                                         </div>
                                         <div class="col-2 col-sm-1 col-md-1">
                                             <div class="dropdown">

@@ -17,12 +17,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
 Route::group(['middleware'=>'auth','prefix'=>'games'],function(){
 	Route::get('/',[GameController::class,'index_user'])->name('view-main');
 
-	Route::get('/{game_id}',[GameController::class,'game_info'])->name('comments.index');
+	Route::get('/about',[GameController::class,'about'])->name('games.about');
+	Route::get('/emulators',[GameController::class,'emulators'])->name('games.emulators');
+
+	Route::get('/{game_id}',[GameController::class,'game_info'])->name('games.details');
 	Route::post('/{game_id}/store',[CommentController::class,'store'])->name('comments.store');
 	Route::delete('/delete/{comment_id}',[CommentController::class,'destroy'])->name('comments.destroy');
-	
-	Route::get("/about",[GameController::class,'about'])->name('about');
-	Route::get("/emulators",[GameController::class,'emulators'])->name('emulators');
 });
 
 /*------------------------------------------*/

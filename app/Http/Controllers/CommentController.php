@@ -36,7 +36,7 @@ class CommentController extends Controller
         $comment->liked = $request->liked=='like'? 1 : 0;
         
         $comment->save();
-        return redirect()->route('comments.index',$game_id)->with('msg','Comentário criado com sucesso!');
+        return redirect()->route('games.details',$game_id)->with('msg','Comentário criado com sucesso!');
     }
 
     /*------------------------------------------*/
