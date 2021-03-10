@@ -39,9 +39,9 @@
 									<tr>
 										<td>{{$comment->user->name}}</td>
                                         <td>{{$comment->game->title}}</td>
-                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#ModalConteudo">Visualizar</a></td>
+                                        <td><a href="#" data-bs-toggle="modal" data-bs-target="#ModalConteudo{{$comment->id}}">Visualizar</a></td>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="ModalConteudo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="ModalConteudo{{$comment->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">

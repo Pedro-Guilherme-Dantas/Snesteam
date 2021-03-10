@@ -55,9 +55,9 @@
                                 </td>
                                 @endfor
                                 <td>{{$game->title}}</td>
-                                <td><a href="#" data-bs-toggle="modal" data-bs-target="#ModalDescricao">Visualizar</a></td>
+                                <td><a href="#" data-bs-toggle="modal" data-bs-target="#ModalDescricao{{$game->id}}">Visualizar</a></td>
                                 <!-- Modal -->
-                                <div class="modal fade" id="ModalDescricao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="ModalDescricao{{$game->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
