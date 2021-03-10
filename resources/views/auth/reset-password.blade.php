@@ -1,36 +1,39 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+@extends('layouts.auth')
 
-        <x-jet-validation-errors class="mb-4" />
+@section('title', 'Redefinir Senha')
+@section('titleFunction', 'REDEFINIR SENHA')
 
-        <form method="POST" action="{{ route('password.update') }}">
-            @csrf
+@section('errorAuth')
+<x-jet-validation-errors class="font-12 text-danger font-weight-bold" />
+@endsection
 
-            <input type="hidden" name="token" value="{{ $request->route('token') }}">
+@section('form')
+<form method="POST" action="{{ route('password.update') }}">
+    @csrf
 
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            </div>
+    <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
+    <div class="block">
+        <x-jet-input id="email" class="block mt-1 w-full data-input text-secondary font-14 px-2" placeholder="E-mail" type="email" name="email" :value="old('email', $request->email)" required autofocus />
+    </div>
 
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+    <div class="mt-2">
+        <x-jet-input id="password" class="block mt-1 w-full data-input text-secondary font-14 px-2" placeholder="Senha" type="password" name="password" required autocomplete="new-password" />
+    </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Reset Password') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+    <div class="mt-2">
+        <x-jet-input id="password_confirmation" class="block mt-1 w-full data-input text-secondary font-14 px-2" placeholder="Confirmar senha" type="password" name="password_confirmation" required autocomplete="new-password" />
+    </div>
+
+    <div class="text-center mt-4">    
+        <button type="submit" class="p-4 send-button">
+            <svg class="invert-content" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+        <br>
+    </div>
+</form>
+
+<a class="btn-back underline text-secondary p-2 text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+</a>
+@endsection

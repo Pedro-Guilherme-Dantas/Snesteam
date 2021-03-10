@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
+            <div class="mb-4 d-none font-medium text-sm text-green-600">
                 {{ session('status') }}
             </div>
     @endif
@@ -83,7 +83,7 @@
             </div>
             <div class="col-md-5 col-lg-4 col-xl-4">
                 <div class="row">
-                    <div class="col-xl-12 p-5">
+                    <div class="col-xl-12 p-5 pt-4">
                         {{-- Login --}}
                         <div class="row">
                             <div class="col-xl-12">
@@ -92,7 +92,7 @@
                                 </div>
                                 <h2 class="text-center font-weight-bold">LOGIN</h2>
                                         @if(session('msgADM'))
-                                            <p id="msgADM">{{ session('msgADM') }}</p>
+                                            <p id="msgADM" class="font-16 text-success">{{ session('msgADM') }}</p>
                                         @endif
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                         <x-jet-validation-errors class="font-12 text-danger font-weight-bold"/>
             
                         @if (session('status'))
-                            <div class="mb-4 font-medium text-sm text-green-600">
+                            <div class="mb-4 font-16 text-success">
                                 {{ session('status') }}
                             </div>
                         @endif
@@ -133,17 +133,18 @@
                             </div>
 
                             <div class="others-links">
+                                @if(Route::has('register'))
+                                <a class="link-special font-14" href="{{ route('register') }}">
+                                    {{ __('Crie sua conta') }}
+                                </a>
+                                @endif
+                                <br>
                                 @if (Route::has('password.request'))
                                     <a class="link-special font-14" href="{{ route('password.request') }}">
                                         {{ __('Esqueceu sua senha?') }}
                                     </a>
                                 @endif
                                 <br>
-                                @if(Route::has('register'))
-                                <a class="link-special font-14" href="{{ route('register') }}">
-                                    {{ __('Crie sua conta') }}
-                                </a>
-                                @endif
                             </div>
                         </form>
                     </div>

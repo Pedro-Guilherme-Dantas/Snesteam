@@ -1,28 +1,32 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+@extends('layouts.auth')
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
+@section('title', 'Confirmar Senha')
+
+@section('titleFunction', 'CONFIRMAR SENHA?')
+@section('errorAuth')
+<x-jet-validation-errors class="font-12 text-danger font-weight-bold" />
+@endsection
+
+@section('form')
+        <div class="mb-4 font-16 text-secondary">
+            {{ __('Esta é uma área segura do aplicativo. Por favor, confirme sua senha antes de continuar.') }}
         </div>
-
-        <x-jet-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('password.confirm') }}">
             @csrf
 
             <div>
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" autofocus />
+                <x-jet-input id="password" class="block mt-1 w-full data-input text-secondary font-14 px-2" placeholder="Senha" type="password" name="password" required autocomplete="current-password" autofocus />
             </div>
 
-            <div class="flex justify-end mt-4">
-                <x-jet-button class="ml-4">
-                    {{ __('Confirm') }}
-                </x-jet-button>
+            <div class="text-center mt-4">    
+                <button type="submit" class="p-4 send-button">
+                    <svg class="invert-content" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </button>
+                <br>
             </div>
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+        <a class="btn-back underline text-secondary p-2 text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </a>
+@endsection
