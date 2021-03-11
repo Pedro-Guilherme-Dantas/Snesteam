@@ -54,7 +54,7 @@
 					</li>
 					{{-- Btn Logout --}}
 					<li class="nav-item mleft-auto">
-						<img src="{{ url('img/svg/profile.svg') }}" class="d-none d-lg-inline d-xl-inline" height="40px" width="40px">
+						<img src="{{ url('img/svg/profile.svg') }}" class="" height="40px" width="40px">
 						<label class="text-light mx-2">@yield('user_name')</label>
 						<a href="#" class="text-decoration-none btn-logout">
 							<form action="/logout" method="POST" style="display:inline">
