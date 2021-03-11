@@ -20,6 +20,20 @@
     }
 }
 
+.purge{
+    opacity: 1;
+    animation: purge 3s;
+    transition: 0.2s;
+}
+
+@keyframes purge{
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 1;
+    }
+}
 
 /* Login */
 *{
