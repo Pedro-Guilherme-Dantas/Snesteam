@@ -26,12 +26,12 @@
 <body>
     <div class="container vh-100">
         <div class="row">
-            <div class="col-xl-6 vh-100 d-flex align-items-center">
+            <div class="col-xl-6 mt-5 d-flex align-items-center">
                 <h1 id="start">PRESS START</h1>
             </div>
 
-            <div class="col-xl-6 vh-100 d-flex align-items-center" id="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" fill="none">
+            <div class="col-xl-6 text-center mt-5">
+                <svg id="logo" xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" fill="none">
                     <g clip-path="url(#clip0)">
                         <path class="effect" d="M250 0C123 0 18.0005 95 2.00049 219L106 267L297 130C297 130 353 92 401 144C449 196 405 290 322 275L236 336C229 383 200 406 150 406C150 406 82.0005 397 78.0005 330L10.0005 318C40.0005 423 136 500 250 500C388 500 500 388 500 250C500 112 388 0 250 0Z" fill="url(#paint0_linear)"/>
                         <path class="effect" d="M158 382C189.001 382 213 357 213 327C213 296 188.001 272 158 272C127 272 103 297 103 327C103 357 128 382 158 382ZM140 324L124 301L144 287L160 310L182.001 294L196.001 313L174 329L190.001 352L170 366L154 344L132 360L118 341L140 324Z" fill="url(#paint1_linear)"/>

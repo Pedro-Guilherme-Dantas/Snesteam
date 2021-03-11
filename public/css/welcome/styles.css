@@ -2,7 +2,7 @@
     font-family: 'Cuprum', sans-serif !important;
     outline: 0;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 body{
     background-image: url('/img/backgrounds/bg-dark.png');
@@ -44,6 +44,20 @@ h1{
 #logo{
     transition: 0.2s;
 }
+
+@media(max-width: 1200px){
+    #logo{
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media(max-width: 576px){
+    #start{
+        font-size: 80px;
+    }
+}
+
 
 #start{
     transition: 0.3s;
