@@ -5,16 +5,14 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\CommentController;
 
-
-Route::get('/', function(){return redirect('/games');});
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
     return redirect('/games');
 });
 
-/*------------------------------------------*/
-
 Route::get('/', [GameController::class, 'welcome'])->name('welcome');
+Route::post('/logout',[GameController::class,'logout']);
+
+/*------------------------------------------*/
 
 Route::group(['middleware'=>'auth','prefix'=>'games'],function(){
 	Route::get('/',[GameController::class,'index_user'])->name('view-main');

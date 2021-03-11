@@ -54,8 +54,20 @@ class GameController extends Controller{
     }
 
     public function welcome(){
+        if(Auth::check())
+            return redirect()->route('view-main');
         return view('welcome');
     }
+    /*------------------------------------------*/
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+
+        return redirect('/login');
+    }
+
     /*------------------------------------------*/
 
     public function about(){
