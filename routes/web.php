@@ -14,6 +14,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
 
 /*------------------------------------------*/
 
+Route::get('/', [GameController::class, 'welcome'])->name('welcome');
+
 Route::group(['middleware'=>'auth','prefix'=>'games'],function(){
 	Route::get('/',[GameController::class,'index_user'])->name('view-main');
 

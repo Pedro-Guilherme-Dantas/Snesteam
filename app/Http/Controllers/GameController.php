@@ -53,6 +53,9 @@ class GameController extends Controller{
             ]);
     }
 
+    public function welcome(){
+        return view('welcome');
+    }
     /*------------------------------------------*/
 
     public function about(){
