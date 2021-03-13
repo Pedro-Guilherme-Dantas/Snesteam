@@ -128,12 +128,12 @@
                                     <form action="{{ route('comments.store',$game->id) }}" method="POST">
                                         @csrf
                                         <div class="row border border-secondary">
-                                            <input type="text" name="comment" class="comment-input p-2" placeholder='Comente aqui...'>                                          
-                                            <input id="like" type="radio" name="liked" value="like" required>
+                                            <input type="text" name="comment" class="comment-input p-2" placeholder='Comente aqui...' value="{{old('comment')}}">                                         
+                                            <input id="like" type="radio" name="liked" value="like">
                                             <label class="like-label" for="like" id="avaliation" onclick="alternate()">
                                                 <img width="20px" src="{{ url('img/img/white.png') }}">
                                             </label>
-                                            <input id="dislike" type="radio" name="liked" value="dislike" name="llked" required>
+                                            <input id="dislike" type="radio" name="liked" value="dislike" name="llked">
                                             <label class="like-label" for="dislike" id="avaliation2" onclick="alternate2()" >
                                                 <img class="img-rotate" width="20px" src="{{ url('img/img/white.png') }}">
                                             </label>
@@ -146,8 +146,14 @@
                                                 </g>
                                                 </svg>
                                             </button>
-                                        </div>
 
+                                        </div>
+                                            @error('comment')
+                                                <small id="ErroComment">*{{ $message }}</small><br>
+                                            @enderror  
+                                            @error('liked')
+                                                <small id="ErroComment">*{{ $message }}</small><br>
+                                            @enderror  
                                         </div>
                                     </form>
                                 </div>      

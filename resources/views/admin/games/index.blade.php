@@ -18,11 +18,10 @@
     <div class="container">
         <div class="row">
             <div class="col">
+               <a title="Adicionar game" href="{{route('admin.games.create')}}" class="btn btn-dark" id="mais">Adicionar game</a> <br>
                 @if($search)
                 <h4>Pesquisando por: {{$search}}</h4>
                 @endif 
-				<a title="Adicionar game" href="{{route('admin.games.create')}}" class="btn btn-dark" id="mais">Adicionar game</a>
-				<br><br>
 				@if(count($games) > 0 )
                 <div class="cabecalhoTable">
                     <h1 id="EJ">Exibindo os jogos</h1>
