@@ -45,48 +45,55 @@
         <div class="row">
             {{-- Dev --}}
             <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 text-center mt-5">
-                <div class="games-div p-4">
-                    <img class="dev-picture" width="100%" src="/img/img/pablo.png">
-                    <h3>Pablo Gustavo</h3>
-                    <h4>Desenvolvedor Back-end</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
+                <a href="https://github.com/Pablo1Gustavo" class="github-link">
+                    <div class="games-div p-4 github-div-effect">
+                        <img class="dev-picture" width="100%" src="/img/img/pablo.png">
+                        <h3>Pablo Gustavo</h3>
+                        <h4>Desenvolvedor Back-end</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </a>
             </div>
 
             {{-- Dev --}}
             <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 text-center mt-5">
-                <div class="games-div p-4">
-                    <img class="dev-picture" width="100%" src="/img/img/pedro.png">
-                    <h3>Pedro Guilherme</h3>
-                    <h4>Desenvolvedor Back-end</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
+                <a href="https://github.com/Pedro-Guilherme-Dantas" class="github-link">
+                    <div class="games-div p-4 github-div-effect">
+                        <img class="dev-picture" width="100%" src="/img/img/pedro.png">
+                        <h3>Pedro Guilherme</h3>
+                        <h4>Desenvolvedor Back-end</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </a>
             </div>
 
             {{-- Dev --}}
             <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 text-center mt-5">
-                <div class="games-div p-4">
-                    <img class="dev-picture" width="100%" src="/img/img/lucas.png">
-                    <h3>Lucas Almeida</h3>
-                    <h4>Desenvolvedor Back-end</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
+                <a href="https://github.com/LucasAlmeidda" class="github-link">
+                    <div class="games-div p-4 github-div-effect">
+                        <img class="dev-picture" width="100%" src="/img/img/lucas.png">
+                        <h3>Lucas Almeida</h3>
+                        <h4>Desenvolvedor Back-end</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </a>
             </div>
 
             {{-- Dev --}}
             <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 text-center mt-5">
-                <div class="games-div p-4">
-                    <img class="dev-picture" width="100%" src="/img/img/victor.png">
-                    <h3>José Victor</h3>
-                    <h4>Desenvolvedor Front-end</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
+                <a href="https://github.com/victormedeiros1" class="github-link">
+                    <div class="games-div p-4 github-div-effect">
+                        <img class="dev-picture" width="100%" src="/img/img/victor.png">
+                        <h3>José Victor</h3>
+                        <h4>Desenvolvedor Front-end</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </a>
             </div>
         </div>
-        
     </div>
 @endsection
