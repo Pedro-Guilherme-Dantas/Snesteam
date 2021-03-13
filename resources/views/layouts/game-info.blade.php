@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('css-add')
-    <link rel="stylesheet" href="{{ url('css/game-info/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/game-info/styles.css') }}">
 @endsection
 
 @section('content')

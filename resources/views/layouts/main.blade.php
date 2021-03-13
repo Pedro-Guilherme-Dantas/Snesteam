@@ -22,7 +22,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 	<!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ url('/css/main/styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/main/styles.css')}}">
 
 	@yield('css-add')
 
@@ -105,8 +105,8 @@
 							<span class="line-title">.........</span>
 							<li class="footer-title my-2">MAPA</li>
 							<li class="footer-item my-2"><a class="link-custom" href="{{ route('view-main') }}">CATÁLOGO</a></li>
-							<li class="footer-item my-2"><a class="link-custom" href="#">EMULADOR</a></li>
-							<li class="footer-item my-2"><a class="link-custom" href="#">SOBRE</a></li>
+							<li class="footer-item my-2"><a class="link-custom" href="{{ route('games.emulators')}}">EMULADOR</a></li>
+							<li class="footer-item my-2"><a class="link-custom" href="{{ route('games.about')}}">SOBRE</a></li>
 						</ul>
 					</div>
 
@@ -188,6 +188,6 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-		<script src="{{ url('js/functions.js') }}"></script>
+		<script src="{{ asset('js/functions.js') }}"></script>
 </body>
 </html>
