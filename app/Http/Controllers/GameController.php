@@ -25,7 +25,7 @@ class GameController extends Controller{
 	public function index_user(){  
         $search = request('search');
         $games = $search ? 
-        Game::where([['title','like','%'.$search.'%']])->get() : Game::paginate(12);
+        Game::where([['LOWER(title)','like','%'.strtolower($search).'%']])->get() : Game::paginate(12);
 		
         return view('user.view-main',['games'=>$games,'search'=>$search]);
 	}

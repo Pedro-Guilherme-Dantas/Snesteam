@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-md">
 				<div class="search-div">
-					<form action="{{ route('admin.users.index')}}" method="GET">
+					<form action="{{ route('admin.comments.index')}}" method="GET">
 						<input class="search-input py-30" placeholder="Buscar comentários" autocomplete="off" type="text" id="search" name="search" value="{{ old('search') }}">
 					</form>	
 				</div>

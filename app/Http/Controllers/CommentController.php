@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUpdateComment;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 
 class CommentController extends Controller
@@ -14,8 +15,8 @@ class CommentController extends Controller
     public function index_admin(){
         $search = request('search');
         $comments = $search ?
-        Comment::with('user')->with('game')->where([['name','like','%'.$search.'%']])->get()
-        : Comment::with('user')->with('game')->paginate(10);
+        Comment::where([['content','like','%'.$search.'%']])->get()
+        : Comment::paginate(10);
 
         return view('admin.comments.index',['comments'=>$comments,'search'=>$search]);
     }
