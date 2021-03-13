@@ -10,7 +10,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard',function(){
 });
 
 Route::get('/', [GameController::class, 'welcome'])->name('welcome');
-Route::post('/logout',[GameController::class,'logout']);
+Route::post('/logout',[GameController::class,'logout'])->name('logout');
 
 /*------------------------------------------*/
 
