@@ -230,3 +230,24 @@ body{
 .nav-link:hover{
 	box-shadow: 0px 2px 0px #A074DB;
 }
+.games-effect{
+	transition: 1s;
+	/* background-color:rgba(255,255,255, 0.55) */
+}
+.games-effect:hover{
+	transform: scale(1.1);
+
+	animation: floating 2s infinite ease-in-out;
+}
+
+@keyframes floating{
+	0%{
+		transform: translateY(0px) scale(1.1);
+	}
+	50%{
+		transform: translateY(5px) scale(1.1);
+	}
+	100%{
+		transform: translateY(0px) scale(1.1);
+	}
+}

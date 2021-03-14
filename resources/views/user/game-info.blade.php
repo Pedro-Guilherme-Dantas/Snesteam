@@ -23,11 +23,11 @@
                             <div class="download p-2 mt-5">
                                 <div class="row">
                                     {{-- Tamanho --}}
-                                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-center">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-center">
                                         <p class="size-game">Tamanho: {{$file_size}} KB</p>
                                     </div>
                                     {{-- Botão download --}}
-                                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                         <a class="btn btn-download" href="{{Storage::disk('s3')->url('game_files/'.$game->file)}}"">
                                             <img src="{{ url('img/svg/download.svg') }}">
                                             Download
@@ -116,7 +116,7 @@
                             <div class="row p-5">
                                 <div class="col-lg-4 col-xl-4">
                                     <div class="row">
-                                        <div class="col-2 col-sm-2 col-md-1 col-lg-3 col-xl-3 p-0 text-center">
+                                        <div class="col-3 col-sm-2 col-md-1 col-lg-3 col-xl-3 p-0 text-center">
                                             <img width="40px" src="{{ url('img/svg/profile.svg') }}">
                                         </div>
                                         <div class="col-9 col-sm-10 col-md-11 col-lg-9 col-xl-9 p-0">
@@ -149,27 +149,28 @@
 
                                         </div>
                                             @error('comment')
-                                                <small id="ErroComment">*{{ $message }}</small><br>
+                                                <small id="ErroComment"class="vote" >*{{ $message }}</small><br>
                                             @enderror  
                                             @error('liked')
-                                                <small id="ErroComment">*{{ $message }}</small><br>
+                                                <small id="ErroComment"class="vote" >*{{ $message }}</small><br>
                                             @enderror  
                                         </div>
                                     </form>
+                                    <span class="vote position-relative text-end" >Avaliação obrigatória</span>
                                 </div>      
                             </div>
                         </div>
                         {{-- Comentário 1 --}}
                         @foreach($userComments as $comment)
-                        <div class="games-div mb-3">
-                            <div class="row p-5">
+                        <div class="games-div mb-3 p-5">
+                            <div class="row">
                                 <div class="col-md-12 col-xl-5">
                                     <div class="row">
-                                        <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-2 pb-2">
+                                        <div class="col-3 col-sm-2 col-md-1 col-lg-1 col-xl-2 pb-2">
                                             <img width="40px" src="{{ url('img/svg/profile.svg') }}">
                                         </div>
 
-                                        <div class="col-10 col-sm-10 col-md-11 col-lg-11 col-xl-10 pl-md-3">
+                                        <div class="col-9 col-sm-10 col-md-11 col-lg-11 col-xl-10 pl-md-3">
                                             <label class="user">{{$comment->user->name}}</label>
                                         </div>
                                     </div>
@@ -179,7 +180,7 @@
                                         @if($comment->liked==1)
                                             <div class="row">
                                                 <div class="col-3 col-sm-3 col-md-2 col-lg-1 col-xl-2">
-                                                    <img src="{{ url('img/img/like.png') }}">
+                                                    <img class="like-response" src="{{ url('img/img/like.png') }}">
                                                 </div>
 
                                                 <div class="col-9 col-sm-9 col-md-10 col-lg-11 col-xl-10">
@@ -281,7 +282,7 @@
                         @foreach($comments as $comment)
                         <div class="games-div mb-3">
                             <div class="row p-5">
-                                <div class="col-md-12 col-xl-5">
+                                <div class="col-md-12 col-xl-5 p-5">
                                     <div class="row">
                                         <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-2 pb-2">
                                             <img width="40px" src="{{ url('img/svg/profile.svg') }}">

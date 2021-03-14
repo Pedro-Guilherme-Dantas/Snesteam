@@ -105,11 +105,12 @@
                             <div class="row p-5">
                                 <div class="col-lg-4 col-xl-4">
                                     <div class="row">
-                                        <div class="col-2 col-sm-2 col-md-1 col-lg-3 col-xl-3 p-0 text-center">
+                                        <div class="col-3 col-sm-2 col-md-1 col-lg-3 col-xl-3 p-0 text-center">
                                             <img width="40px" src="{{ url('img/svg/profile.svg') }}">
                                         </div>
                                         <div class="col-9 col-sm-10 col-md-11 col-lg-9 col-xl-9 p-0">
                                             <label class="user pl-2">OtakuGamer</label>
+                                            <label class="vote">Avaliação obrigatória</label>
                                         </div>
                                     </div>
                                 </div>

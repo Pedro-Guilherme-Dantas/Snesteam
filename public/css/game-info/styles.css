@@ -134,3 +134,21 @@ h1{
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+
+.vote{
+    font-size: 10px;
+    color: #fafafa;
+    float: right;
+}
+
+@media(max-width: 500px){
+    .like-response{
+        width: 30px;
+    }
+    .opinion{
+        font-size: 12px;
+    }
+    .user{
+        font-size: 12px;
+    }
+}
