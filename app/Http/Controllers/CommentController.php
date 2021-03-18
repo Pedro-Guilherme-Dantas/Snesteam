@@ -8,7 +8,7 @@ use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
-
+use Gate;
 
 class CommentController extends Controller
 {
@@ -42,10 +42,14 @@ class CommentController extends Controller
 
     /*------------------------------------------*/
 
-    public function destroy($comment_id){
-        $comment = Comment::findOrFail($comment_id);
-        $comment->delete();
-
-        return redirect()->back()->with('msg','Comentário deletado com sucesso!');
+    public function destroy(Comment $comment){
+        if(Gate::allows('destroyComment',$comment)){
+            $commentDestroy = Comment::findOrFail($comment->id);
+            $commentDestroy->delete();
+            return redirect()->back()->with('msg','Comentário deletado com sucesso!');
+        }else{
+            return redirect()->back()->with('msg_error','Você não pode apagar esse comentário!');
+        }
+        
     }
 }

@@ -22,7 +22,7 @@ Route::group(['middleware'=>'auth','prefix'=>'games'],function(){
 
 	Route::get('/{game_id}',[GameController::class,'game_info'])->name('games.details');
 	Route::post('/{game_id}/store',[CommentController::class,'store'])->name('comments.store');
-	Route::delete('/delete/{comment_id}',[CommentController::class,'destroy'])->name('comments.destroy');
+	Route::delete('/delete/{comment}',[CommentController::class,'destroy'])->name('comments.destroy');
 });
 
 /*------------------------------------------*/
