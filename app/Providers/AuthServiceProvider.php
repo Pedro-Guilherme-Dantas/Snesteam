@@ -28,7 +28,11 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('destroyComment',function(User $user,Comment $comment){
-            return $user->id == $comment->user_id;
+            if($user->utype == 'USR'){
+              return $user->id == $comment->user_id;  
+            }else{
+               return $user->id == $comment->user_id || $user->id != $comment->user_id;   
+            }    
         });
         
     }
