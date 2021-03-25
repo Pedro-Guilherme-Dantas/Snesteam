@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Routing\UrlGenerator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,13 +22,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(UrlGenerator $url)
+    public function boot()
     {
         \Illuminate\Support\Facades\Schema::defaultStringLength(191);
           Paginator::useBootstrap();
-
-        if(env('REDIRECT_HTTPS')){
-            $url->forceScheme('https');
-        }
     }
 }

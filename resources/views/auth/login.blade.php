@@ -33,8 +33,8 @@
 
         
 	<!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/login/styles.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/form-style/styles.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/login/styles.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/form-style/styles.css') }}">
 
     <title>{{ config('app.name') }} - Login</title>
 </head>
@@ -160,6 +160,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/functions.js') }}"></script>
+    <script src="{{ secure_asset('js/functions.js') }}"></script>
 </body>
 </html>
