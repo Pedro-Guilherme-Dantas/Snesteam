@@ -33,8 +33,8 @@
 
         
 	<!-- CSS -->
-    <link rel="stylesheet" href="{{ secure_asset('css/login/styles.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('css/form-style/styles.css') }}">
+    <link rel="stylesheet" href="{{ url('css/login/styles.css') }}">
+    <link rel="stylesheet" href="{{ url('css/form-style/styles.css') }}">
 
     <title>{{ config('app.name') }} - Login</title>
 </head>

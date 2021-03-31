@@ -22,7 +22,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
 	<!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ secure_asset('/css/main/styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/main/styles.css')}}">
 
 	@yield('css-add')
 
